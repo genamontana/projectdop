@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import {Header} from './site/Header';
-import {Body} from './site/Body';
-import {Footer} from './site/Footer';
+import {Header} from './1_lesson/Header';
+import {Body} from './1_lesson/Body';
+import {Footer} from './1_lesson/Footer';
 
 function App() {
     return (
