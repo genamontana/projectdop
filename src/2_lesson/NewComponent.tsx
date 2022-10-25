@@ -7,23 +7,24 @@ type StudentType = {
     age: number
 }*/
 
-type TopCarsType = {
+type NewComponentType = {
+    cars: Array<TopCarsType>
+}
+
+export type TopCarsType = {
     manufacturer: string,
     model: string
 }
 
 
-export const NewComponent = () => {
-    const topCars = [
-        {manufacturer: 'BMW', model: 'm5cs'},
-        {manufacturer: 'Mercedes', model: 'e63s'},
-        {manufacturer: 'Audi', model: 'rs6'}
-    ]
+
+export const NewComponent = (props:NewComponentType) => {
+
     return (
         <table>
-            {topCars.map((topCars, index) => {
+            {props.cars.map((topCars, index) => {
                 return (
-                    <tr>
+                    <tr key={index}>
                         <td><span>{topCars.manufacturer}</span></td>
                         <td><span> {topCars.model}</span></td>
                     </tr>
