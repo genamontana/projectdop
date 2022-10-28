@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Button} from './3_lesson/Button';
+//import {Button} from './3_lesson/Button';
 //import {NewComponent} from './2_lesson/NewComponent';
 
 
@@ -30,6 +31,12 @@ import {Button} from './3_lesson/Button';
     {id: 11, name: "Christopher", age: 100},
 ]*/
 
+type ShowType = {
+    userId: number,
+    id: number,
+    title: string,
+    completed: boolean,
+}
 
 function App() {
 
@@ -59,8 +66,8 @@ function App() {
         console.log(number)
     }*/
 
-
-    const Button1Foo = (subscriber: string, age: number) => {
+    //Третий урок
+    /*const Button1Foo = (subscriber: string, age: number) => {
         console.log(subscriber, age)
     }
     const Button2Foo = (subscriber: string) => {
@@ -68,32 +75,60 @@ function App() {
     }
     const Button3Foo = (stupid: string) => {
         console.log(stupid)
+    }*/
+
+    const [show, setShow] = useState<ShowType[]>([])
+
+
+    const useShowUP = () => {
+        fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => setShow(json))
     }
 
+    const clean =()=>{
+        setShow([])
+    }
 
-return (
+    return (
 
-    <>
-        {/*<button onClick={(event)=>{console.log("Hello")}}>MyYouTubeChanel-1</button>*/}
+        <>
+            <Button name={'show me'} callBack={useShowUP}/>
+            <Button name={'Clean me'} callBack={clean}/>
 
-        {/*<button onClick={(event) => onClickHandler('VASA')}>MyYouTubeChanel-1</button>
-            <button onClick={(event) => onClickHandler('IVAN')}>MyYouTubeChanel-2</button>*/}
+            <ul>
+                {show.map(el => {
+                    return (
+                        <li key={el.id}>
+                            <span>{el.id}</span>
+                            <span>{el.title}</span>
+                            <span>{`${el.completed}`}</span>
+                        </li>
+                    )
+                })}
 
+
+            </ul>
+
+            {/*Третий урок*/}
+            {/*
+        <button onClick={(event)=>{console.log("Hello")}}>MyYouTubeChanel-1</button>
+
+        <button onClick={(event) => onClickHandler('VASA')}>MyYouTubeChanel-1</button>
+            <button onClick={(event) => onClickHandler('IVAN')}>MyYouTubeChanel-2</button>
 
         <Button name={'MyYouTubeChanel-1'} callBack={() => Button1Foo('Im Vasa', 21)}/>
         <Button name={'MyYouTubeChanel-2'} callBack={() => Button2Foo('Im Ivan')}/>
-        <Button name={'Stupid'} callBack={() => Button3Foo('i am stupid')}/>
+        <Button name={'Stupid'} callBack={() => Button3Foo('i am stupid')}/>*/}
 
-        {/*<button onClick={()=>onClickHandler('some info')}>MyYouTubeChanel-3</button>*/}
-
-        {/*//Самостоятельное выполнение 2-х кнопок
+            {/*//Самостоятельное выполнение 2-х кнопок
             <button onClick={foo1}>1</button>
             <button onClick={() => foo2(100200)}>2</button>*/}
 
-        {/*второй урок компонента
+            {/*второй урок компонента
             <NewComponent cars={topCars}/>*/}
-    </>
-);
+        </>
+    );
 }
 
 export default App;
