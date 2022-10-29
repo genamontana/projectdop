@@ -31,12 +31,13 @@ import {Button} from './3_lesson/Button';
     {id: 11, name: "Christopher", age: 100},
 ]*/
 
-type ShowType = {
+//Задание с Игорем  на 2-ом допе
+/*type ShowType = {
     userId: number,
     id: number,
     title: string,
     completed: boolean,
-}
+}*/
 
 function App() {
 
@@ -77,7 +78,8 @@ function App() {
         console.log(stupid)
     }*/
 
-    const [show, setShow] = useState<ShowType[]>([])
+    /*Задание с Игорем на 2-ом допе*/
+    /*const [show, setShow] = useState<ShowType[]>([])
 
     const useShowUP = () => {
         fetch('https://jsonplaceholder.typicode.com/todos')
@@ -87,12 +89,15 @@ function App() {
 
     const clean =()=>{
         setShow([])
-    }
+    }*/
 
     return (
 
         <>
-            <Button name={'show me'} callBack={useShowUP}/>
+
+
+            {/*Задание с Игорем на 2-ом допе */}
+            {/*<Button name={'show me'} callBack={useShowUP}/>
             <Button name={'Clean me'} callBack={clean}/>
 
             <ul>
@@ -105,9 +110,7 @@ function App() {
                         </li>
                     )
                 })}
-
-
-            </ul>
+            </ul>*/}
 
             {/*Третий урок*/}
             {/*
