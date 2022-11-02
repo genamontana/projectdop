@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {Button} from './3_lesson/Button';
+//import {Button} from './3_lesson/Button';
 //import {Button} from './3_lesson/Button';
 //import {NewComponent} from './2_lesson/NewComponent';
 
@@ -91,10 +91,30 @@ function App() {
         setShow([])
     }*/
 
+    /*4-ый урок с игорем useState*/
+    /*//let a = 1
+    let[a, setA] = useState(1)
+
+    const onClickHandler = () =>{
+        setA(++a)
+        console.log(a)
+    }
+
+    const onClickHandlerNull = () =>{
+        setA(0)
+        console.log(a)
+    }*/
+
     return (
 
         <>
 
+
+
+            {/*4-ый урок с игорем useState*/}
+            {/*<h1>{a}</h1>
+            <button onClick={onClickHandler}>number</button>
+            <button onClick={onClickHandlerNull}>0</button>*/}
 
             {/*Задание с Игорем на 2-ом допе */}
             {/*<Button name={'show me'} callBack={useShowUP}/>
