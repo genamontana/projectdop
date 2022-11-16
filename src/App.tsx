@@ -1,5 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
+import {FullInput} from './6_lesson/FullInput';
+import {Input} from './6_lesson/Input';
+import {Button} from './6_lesson/Button';
+//import {NewComponent_5} from './5_lesson/NewComponent_5';
 //import {Button} from './3_lesson/Button';
 //import {Button} from './3_lesson/Button';
 //import {NewComponent} from './2_lesson/NewComponent';
@@ -38,6 +42,10 @@ import './App.css';
     title: string,
     completed: boolean,
 }*/
+
+/*5-ый урок с Игорем filter*/
+
+//type FilterType = 'all'|'Dollars'|'RUBLES'
 
 function App() {
 
@@ -91,7 +99,7 @@ function App() {
         setShow([])
     }*/
 
-    /*4-ый урок с игорем useState*/
+    /*4-ый урок с Игорем useState*/
     /*//let a = 1
     let[a, setA] = useState(1)
 
@@ -105,11 +113,86 @@ function App() {
         console.log(a)
     }*/
 
+    /*5-ый урок с Игорем filter*/
+    /*const [money, setMoney] = useState([
+        {banknots: 'Dollars', value: 100, number: ' a1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' z1234567890'},
+        {banknots: 'RUBLES', value: 100, number: ' w1234567890'},
+        {banknots: 'Dollars', value: 100, number: ' e1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' c1234567890'},
+        {banknots: 'RUBLES', value: 100, number: ' r1234567890'},
+        {banknots: 'Dollars', value: 50, number: ' x1234567890'},
+        {banknots: 'RUBLES', value: 50, number: ' v1234567890'},
+    ])
+
+    const [filter, setFilter]=useState<FilterType>('all')
+
+    let currentMoney = money;
+    if (filter === 'Dollars') {
+        currentMoney = money.filter(filteredMoney => filteredMoney.banknots === 'Dollars')
+    }
+    if (filter === 'RUBLES') {
+        currentMoney = money.filter(filteredMoney => filteredMoney.banknots === 'RUBLES')
+    }
+
+    const onClickFilterHandler = (nameButton: FilterType) => {
+        setFilter(nameButton)
+    }*/
+
+    //6-ой урок с Игорем input
+    let [message, setMessage] = useState([
+            {message: 'message1'},
+            {message: 'message2'},
+            {message: 'message3'},
+            {message: 'message4'},
+            {message: 'message5'}
+        ]
+    )
+
+    let [title, setTitle] = useState('')
+    console.log(title)
+
+    const addMessage = (title: string) => {
+        let newMessage = {message: title};
+        setMessage([newMessage, ...message])
+    }
+    
+    const callBackButtonHandler = () => {
+        addMessage(title)
+        setTitle('')
+    }
+
     return (
 
         <>
+            <div className="App">
+                <Input setTitle={setTitle} title={title}/>
+                <Button name={'+'} callBack={callBackButtonHandler}/>
+                {message.map((el, index) => {
+                    return (
+                        <div key={index}>{el.message}</div>
+                    )
+                })}
+            </div>
 
 
+            {/*5-ый урок с Игорем filter*/}
+            {/*<ul>
+                {currentMoney.map((objFromMoneyArr, index) => {
+                    return <li key={index}>
+                        <span>{objFromMoneyArr.banknots}</span>
+                        <span>{objFromMoneyArr.value}</span>
+                        <span>{objFromMoneyArr.number}</span>
+                    </li>
+                })}
+            </ul>
+            <div style={{marginLeft: '35px'}}>
+                <button onClick={() => onClickFilterHandler('all')}>all</button>
+                <button onClick={() => onClickFilterHandler('RUBLES')}>RUBLES</button>
+                <button onClick={() => onClickFilterHandler('Dollars')}>Dollars</button>
+            </div>
+            <br/>
+            <NewComponent_5/>*/}
 
             {/*4-ый урок с игорем useState*/}
             {/*<h1>{a}</h1>
